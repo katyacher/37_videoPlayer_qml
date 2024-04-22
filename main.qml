@@ -9,6 +9,7 @@ Window {
     height: 480
     visible: true
     title: qsTr("My Video Player")
+    color: "#000000"
 
 
 
@@ -17,6 +18,10 @@ Window {
         //anchors.fill: parent
         Layout.fillWidth: true
         anchors.bottom: parent.bottom;
+        //anchors.bottomMargin: 10
+        //Layout.rowSpan: 0
+        spacing: 0
+
 
         ButtonGroup {
             id: btnGroup
@@ -26,33 +31,21 @@ Window {
                   id: play
                   ButtonGroup.group: btnGroup
                   text: "\u25B6"
-                  onClicked: {player.color = "#678fff";}
-
-                  //Layout.alignment : parent.bottom
-                 // Layout.alignment : parent.left
-
+                  onClicked: {player.color = "#bbbbbb";}
 
               }
               Button{
                   id: pause
                   ButtonGroup.group: btnGroup
                   text: "\u23F8"
-                  onClicked: {player.color = "#556677";}
-
-                  //anchors.bottom: parent.bottom
-                 // Layout.alignment: play.right
-
+                  onClicked: {player.color = "#1f1f1f";}
 
               }
               Button{
                   id: stop
                   ButtonGroup.group: btnGroup
                   text: "\u23F9"
-                  onClicked: {player.color = "#223344";}
-
-
-                 // Layout.alignment: pause.right
-
+                  onClicked: {player.color = "#000000";}
 
               }
 
@@ -60,65 +53,45 @@ Window {
                   id: rewind
                   ButtonGroup.group: btnGroup
                   text: "\u23EA"
-                  onClicked: {player.color = "#aabbcc";}
-
-
-                 // Layout.alignment: stop.right
-
-
-
+                  onClicked: {player.color = "#afafaf";}
               }
 
               Button{
                   id: forward
                   ButtonGroup.group: btnGroup
                   text: "\u23E9"
-                  onClicked: {player.color = "#778899";}
-
-
-                 // Layout.alignment: rewind.right
+                  onClicked: {player.color = "#bbbbbb";}
 
               }
 
 
-                Text{
+               Text{
                     id: start_time
                     text: "00:00";
+                    color: "#ffffff"
 
-                   // Layout.alignment: forward.right
-                    anchors.bottomMargin: 15
-                    anchors.leftMargin: 20
-                }
+                    Layout.leftMargin: 20
+               }
 
                 ProgressBar{
                     id: progress
                     height: btnGroup.height
-                   // width: player.width - btnGroup.width - 60
+                    width: player.implicitWidth - btnGroup.implicitWidth
+                    //implicitWidth : 100
 
                     Layout.fillWidth: true
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
 
-                    anchors.bottomMargin: 20
-                    anchors.leftMargin: 20
-                    anchors.rightMargin: 20
-
-                    from: 0
-                    to: 1
-
-
-                   // Layout.alignment: start_time.right;
-
+                    value: 0.3
                 }
 
                 Text{
                     id: video_length_time
-                    text: "00:00";
+                    text: "05:00";
+                    color: "#ffffff"
 
-                  //  Layout.alignment: progress.right
-                    Layout.fillWidth: true
-
-                    anchors.bottomMargin: 15;
-                    anchors.leftMargin: 20;
-                    anchors.rightMargin: 20;
+                    Layout.rightMargin: 20;
                 }
         }
 }
