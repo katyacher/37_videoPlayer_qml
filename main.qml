@@ -15,11 +15,8 @@ Window {
 
     RowLayout {
         id: row
-        //anchors.fill: parent
         Layout.fillWidth: true
         anchors.bottom: parent.bottom;
-        //anchors.bottomMargin: 10
-        //Layout.rowSpan: 0
         spacing: 0
 
 
